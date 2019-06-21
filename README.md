@@ -26,20 +26,20 @@ Then simply run the script without arguments (e.g. from a cronjob)
  
     dyndns-permissions-script.pl
 
-# Variables
+## Variables
 The variables have to be changed inside the Perl script as I did not implement reading args from the command line: 
 
-## Testmode
+### Testmode
 
     # enables debug mode without writing to hosts file
     my $TESTING    = 0;
 
-## Nameserver
+### Nameserver
 
     # Nameserver to ask
     my $NAMESERVER = '8.8.8.8';
 
-## Hosts file and delimiters
+### Hosts file and delimiters
 The script reads all lines between `$DELIMITER1` and `$DELIMITER2` from `$HOSTS_HOSTFILE` and tries to get the actual IP addresses of the hostnames it read.
 
     # File to read from and write to
@@ -51,7 +51,7 @@ The script reads all lines between `$DELIMITER1` and `$DELIMITER2` from `$HOSTS_
     # End delimiter
     my $DELIMITER2 = '# END: Automagic DynDNS - Updater';
 
-## Postfix
+### Postfix
 
 **[optional]** _Can be disabled by removing the reference to the sub in `@modules`._
 
@@ -60,7 +60,7 @@ The file the script should write the resolved IP addresses to so that postfix ca
     # File where postfix reads its mynetworks parameter from
     my $POSTF_MYNETWORKSFILE = '/etc/postfix/dyndnshosts.cf';
 
-## Iptables
+### Iptables
 
 **[optional]** _Can be disabled by removing the reference to the sub in `@modules`._
 
